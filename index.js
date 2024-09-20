@@ -10,14 +10,15 @@ function reverseString(input) {
 console.log(reverseString(str));
 /******************************* */
 function CountCharacters(input) {
-    let l = input.length;
+    //let l = input.length;
+ /*  let l = input.length;
     let countchar = 0;
     for (let i = 0; i < l; i++) {
         // Vérifie si le caractère est une lettre ou un espace
         if (input[i].match(/[a-zA-Z ]/)) {
             countchar++;
-        }
-    }
+        }*/ 
+       countchar= input.length;
     return countchar; // Retourne le nombre de caractères
 }
 
