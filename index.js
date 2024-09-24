@@ -1,3 +1,5 @@
+
+
 var str = "nourhene 52";
 function reverseString(input) {
     let reversedStr = "";
@@ -10,15 +12,19 @@ function reverseString(input) {
 console.log(reverseString(str));
 /******************************* */
 function CountCharacters(input) {
-    //let l = input.length;
- /*  let l = input.length;
+    let l = input.length;
     let countchar = 0;
-    for (let i = 0; i < l; i++) {
-        // Vérifie si le caractère est une lettre ou un espace
-        if (input[i].match(/[a-zA-Z ]/)) {
-            countchar++;
-        }*/ 
-       countchar= input.length;
+    /*  let l = input.length;
+       
+       for (let i = 0; i < l; i++) {
+           // Vérifie si le caractère est une lettre ou un espace
+           if (input[i].match(/[a-zA-Z ]/)) {
+               countchar++;
+           }*/
+    //countchar= input.length;
+    for (i = 0; i < l; i++) {
+        countchar++;
+    }
     return countchar; // Retourne le nombre de caractères
 }
 
@@ -26,9 +32,14 @@ function CountCharacters(input) {
 console.log(CountCharacters(str));
 /***************************** */
 function capitalizeWords(sentence) {
-    return sentence.split(' ').map(word => {
-        return word.charAt(0).toUpperCase() + word.slice(1);
-    }).join(' ');
+    var words = sentence.split(" ");
+    var array = [];
+
+    for (i = 0; i < words.length; i++) {
+        var word = words[i];
+        array.push(word[0].toUpperCase() + word.substring(1))
+    }
+    return array.join(" ")
 }
 
 var sent = "bonjour tout le monde";
@@ -67,22 +78,31 @@ function sum(A) {
 }
 console.log("sum of element is: " + sum(A))
 /***************************** */
-function filterArray(arr, condition) {
-    return arr.filter(condition);
-}
-var evenNumbers = filterArray(A, num => num % 2 === 0);
+function filterArray(A, condition) {
+    let variable = [];
+    let index = 0;
 
-console.log(evenNumbers);
+    for (let i = 0; i < A.length; i++) {
+        if (condition(A[i])) {
+            variable[index] = A[i];
+            index++;
+        }
+    }
+
+    return variable;
+}
+v = filterArray(A, num => num % 2 === 0);
+console.log(v);
 /*************************'*********** */
 var num = 10;
 function Factorial(num) {
-    let x = 0;
+
     let fact;
     if (num < 0) {
         fact = "Error! Factorial of a negative number doesn't exist."
     }
-    else if (num == x) {
-        fact = x;
+    else if (num === 0) {
+        fact = 1;
     }
     else {
         let res = 1;
@@ -98,25 +118,25 @@ function Factorial(num) {
 console.log(Factorial(num));
 /*********************** */
 function PrimeNumber(num) {
-    if (num % 2 === 0) {
-        prime = " the number is prime"
+
+    if (num <= 1) return false
+    for (let i = 2; i <= num; i++) {
+        if (num % i === 0) return false
     }
-    else {
-        prime = " the  number isn't prime"
-    }
-    return (prime)
+    return true
 }
 console.log(PrimeNumber(num));
 /*************************** */
 function FibonacciSequence(num) {
     var fib = [0, 1];
-
+if(num<=0)return []
+if(num===1) return[0]
     for (i = 2; i < num; i++) {
         fib[i] = fib[i - 1] + fib[i - 2];
-        
+
     }
-    return(fib)
+    return (fib)
 
 
 }
-console.log (FibonacciSequence(num))
+console.log(FibonacciSequence(num))
